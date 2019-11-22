@@ -7,10 +7,11 @@
   },
   "main": "dist/index.js",
   "scripts": {
-    "clean": "rm -rf dist/*",
+    "build": "yarn clean && tsc && yarn copy-assets",
+    "clean": "rimraf dist/*",
     "copy-assets": "ts-node build/copyAssets",
     "dev": "ts-node-dev --respawn --transpileOnly ./index.ts",
-    "start": "yarn clean && tsc && yarn copy-assets && node dist/index.js",
+    "start": "node dist/index.js",
     "test": "node test.js"
   },
   "dependencies": {
@@ -24,6 +25,7 @@
     "@types/shelljs": "^0.8.6",
     "prettier": "^1.19.1",
     "request": "^2.81.0",
+    "rimraf": "^3.0.0",
     "shelljs": "^0.8.3",
     "tape": "^4.7.0",
     "ts-node": "^8.5.2",
