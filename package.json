@@ -5,9 +5,12 @@
   "engines": {
     "node": "12.x"
   },
-  "main": "index.ts",
+  "main": "dist/index.js",
   "scripts": {
-    "start": "node index.ts",
+    "clean": "rimraf dist/*",
+    "copy-assets": "ts-node build/copyAssets",
+    "dev": "ts-node-dev --respawn --transpileOnly ./index.ts",
+    "start": "yarn clean && tsc && yarn copy-assets && node dist/index.js",
     "test": "node test.js"
   },
   "dependencies": {
@@ -18,9 +21,14 @@
   "devDependencies": {
     "@types/express": "^4.17.2",
     "@types/node": "^12.12.11",
+    "@types/shelljs": "^0.8.6",
     "prettier": "^1.19.1",
     "request": "^2.81.0",
+    "rimraf": "^3.0.0",
+    "shelljs": "^0.8.3",
     "tape": "^4.7.0",
+    "ts-node": "^8.5.2",
+    "ts-node-dev": "^1.0.0-pre.44",
     "tslint": "^5.20.1",
     "tslint-config-prettier": "^1.18.0",
     "tslint-plugin-prettier": "^2.0.1",
