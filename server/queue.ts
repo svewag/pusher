@@ -1,5 +1,5 @@
-const queue: Array<any> = []
+const QUEUE: Array<any> = []
 
-module.exports.all = () => queue
-module.exports.add = (entry) => queue.push(entry)
-module.exports.next = () => queue.shift()
+module.exports.all = () => QUEUE
+module.exports.add = (entry: any) => QUEUE.push(entry)
+module.exports.next = () => QUEUE.shift()

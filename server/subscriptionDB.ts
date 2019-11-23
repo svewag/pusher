@@ -4,6 +4,6 @@ module.exports.all = () => {
   return subscriptions
 }
 
-module.exports.add = (subscription) => {
+module.exports.add = (subscription: any) => {
   subscriptions.push(subscription)
 }

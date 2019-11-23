@@ -9,8 +9,8 @@ webpush.setVapidDetails(
   'Y7tXpR_TmbxLNMlkUvvODOqayD-i98q8jlPQ1it1cGw',
 );
 
-const sendNotification = (pushSubscription, { message }) => {
-  webpush.sendNotification(pushSubscription, message)
+const sendNotification = (pushSubscription: any, { message }: { message: string }) => {
+  return webpush.sendNotification(pushSubscription, message)
 }
 
 setInterval(function () {
