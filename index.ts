@@ -1,7 +1,8 @@
 const express = require('express')
 const path = require('path')
 const PORT = process.env.PORT || 5000
-const api = require('./api')
+const api = require('./server/api')
+const admin = require('./server/admin')
 
 express()
   .use(express.json())
@@ -9,5 +10,6 @@ express()
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   .get('/', (req: any, res: any) => res.render('pages/index'))
+  .get('/admin', admin)
   .use('/api/*', api)
   .listen(PORT, () => console.log(`Listening on http://127.0.0.1:${PORT}`))
